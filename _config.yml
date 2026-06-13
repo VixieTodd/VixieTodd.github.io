@@ -113,6 +113,6 @@ feed:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:VixieTodd/VixieTodd.github.io.git
+  repo: https://github.com/VixieTodd/VixieTodd.github.io.git
   branch: main
   message: 'Site updated: {{ now("YYYY-MM-DD HH:mm:ss") }}'
