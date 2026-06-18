@@ -87,5 +87,5 @@ fancybox:
 # 页脚
 # ============
 footer:
-  left: '© {year} By {name}'
-  right: 'Powered by Theme {theme}'
+  left: '© {year} By VixieTodd'
+  right: "Powered by Theme {theme} &nbsp;|&nbsp; <a rel='license' href='https://creativecommons.org/licenses/by/4.0/' target='_blank'>CC BY 4.0</a>"
