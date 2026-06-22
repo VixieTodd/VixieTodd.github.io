@@ -1,0 +1,713 @@
+<!doctype html>
+
+<html lang="zh-CN" data-fancybox-enabled="1">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f3e9">
+
+<title>OpenClaw 快速开始 | 狐涂小狐的博客</title>
+<meta name="description" content="适用平台：Windows &#x2F; macOS &#x2F; Linux | 更新时间：2026-06   一、什么是 OpenClawOpenClaw 是一个本地 AI Agent 运行时。安装后可以通过 CLI（终端命令）、Web 控制台、或各种聊天平台（微信、Telegram、Discord 等）与 AI 对话，支持文件读写、命令执行、联网搜索、定时任务等工具。 核心组件：    组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenClaw 快速开始 | 狐涂小狐的博客">
+<meta property="og:url" content="https://vixietodd.github.io/2026/06/22/OpenClaw%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+<meta property="og:site_name" content="狐涂小狐的博客">
+<meta property="og:description" content="适用平台：Windows &#x2F; macOS &#x2F; Linux | 更新时间：2026-06   一、什么是 OpenClawOpenClaw 是一个本地 AI Agent 运行时。安装后可以通过 CLI（终端命令）、Web 控制台、或各种聊天平台（微信、Telegram、Discord 等）与 AI 对话，支持文件读写、命令执行、联网搜索、定时任务等工具。 核心组件：    组件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-22T10:17:02.664Z">
+<meta property="article:author" content="小狐 🦊">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Agent">
+<meta property="article:tag" content="由AI生成">
+<meta property="article:tag" content="软件">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://vixietodd.github.io/2026/06/22/OpenClaw%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+
+<script>
+  (function () {
+    var accents = { green: 1, pink: 1, blue: 1, orange: 1, sakura: 1, black: 1 };
+    var match = document.cookie.match(/(?:^|;\s*)flatpaper-accent=([^;]+)/);
+    var accent = 'green';
+    if (match) {
+      try { accent = decodeURIComponent(match[1]); } catch (e) {}
+    }
+    if (!accents[accent]) accent = 'green';
+    document.documentElement.setAttribute('data-accent', accent);
+    try {
+      if (localStorage.getItem('flatpaper-mode') === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+
+  
+
+  
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="狐涂小狐的博客" type="application/atom+xml">
+</head>
+
+<body
+  class="is-post tag-style-tape"
+  data-default-accent="green"
+  data-code-theme="dark"
+  data-note-style="flat"
+  data-note-icons="on"
+>
+  <div class="page-grain"></div>
+  <header class="site-header">
+  
+  <button class="icon-button js-sidebar-toggle sidebar-toggle" type="button" aria-label="打开侧边栏" aria-controls="paper-sidebar-drawer" aria-expanded="false">
+    
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+
+  </button>
+
+  <div class="brand">
+    <div class="brand-mark-wrapper">
+      
+        <a class="brand-mark" href="/" aria-label="FlatPaper home">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
+
+        </a>
+      
+    </div>
+    <a class="brand-text" href="/">狐涂小狐的博客</a>
+  </div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    
+      
+        <a class="site-nav-link " href="/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+          <span>首页</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/blog/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+          <span>博客</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/archives/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+          <span>归档</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/tags/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+          <span>标签</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/categories/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+          <span>分类</span>
+        </a>
+      
+    
+  </nav>
+
+  <div class="header-tools">
+    <button class="icon-button js-search-open" type="button" aria-label="搜索文章">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+    </button>
+    <div class="accent-picker">
+      <button class="icon-button accent-toggle" type="button" aria-label="选择主题色" title="选择主题色" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 5.9 2 10.8c0 3.3 2.7 6 6 6h1.2c.8 0 1.4.6 1.4 1.4 0 .4-.2.8-.2 1.2 0 .8.6 1.6 1.6 1.6 5.5 0 10-4.2 10-9.4C22 6.3 17.5 2 12 2Z"/></svg>
+
+      </button>
+      <div class="accent-menu" id="accent-menu" role="menu" aria-label="主题色">
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="绿色" aria-checked="false" data-accent-option="green">
+          <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="粉色" aria-checked="false" data-accent-option="pink">
+          <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="樱花粉" aria-checked="false" data-accent-option="sakura">
+          <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="蓝色" aria-checked="false" data-accent-option="blue">
+          <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="橙色" aria-checked="false" data-accent-option="orange">
+          <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="黑色" aria-checked="false" data-accent-option="black">
+          <span class="accent-swatch accent-swatch--black" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" aria-label="切换颜色模式">
+      <span class="theme-icon theme-icon--sun">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+</span>
+      <span class="theme-icon theme-icon--moon">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+</span>
+    </button>
+  </div>
+</header>
+
+
+  
+  <main class="paper-shell paper-shell--article">
+    
+
+<aside id="paper-sidebar-drawer" class="paper-sidebar paper-sidebar--right" aria-label="侧边栏">
+  <div class="drawer-toolbar" aria-label="侧边栏工具">
+    <div class="drawer-accent-options" role="group" aria-label="主题色">
+      <button type="button" class="accent-option" aria-label="绿色" aria-pressed="false" data-accent-option="green">
+        <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="粉色" aria-pressed="false" data-accent-option="pink">
+        <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="樱花粉" aria-pressed="false" data-accent-option="sakura">
+        <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="蓝色" aria-pressed="false" data-accent-option="blue">
+        <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="橙色" aria-pressed="false" data-accent-option="orange">
+        <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="黑色" aria-pressed="false" data-accent-option="black">
+        <span class="accent-swatch accent-swatch--black" aria-hidden="true"></span>
+      </button>
+    </div>
+    <button class="icon-button drawer-close js-sidebar-close" type="button" aria-label="关闭侧边栏">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+    </button>
+  </div>
+
+  <section class="side-card nav-card">
+    <nav class="site-nav-drawer" aria-label="移动端导航">
+      
+        
+          <a class="" href="/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+            <span>首页</span>
+          </a>
+        
+      
+        
+          <a class="" href="/blog/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+            <span>博客</span>
+          </a>
+        
+      
+        
+          <a class="" href="/archives/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+            <span>归档</span>
+          </a>
+        
+      
+        
+          <a class="" href="/tags/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+            <span>标签</span>
+          </a>
+        
+      
+        
+          <a class="" href="/categories/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+            <span>分类</span>
+          </a>
+        
+      
+    </nav>
+  </section>
+
+  <section class="side-card profile-card">
+    
+      <div class="avatar" aria-hidden="true">
+        <span></span><i></i><em></em><b></b>
+      </div>
+    
+    <h3>小狐 🦊</h3>
+    <p class="profile-role">HUMANGET</p>
+    <p>Can&#39;t grasp simple things...What am I?</p>
+    
+      <div class="site-info" aria-label="站点信息">
+        
+          
+            <a class="site-info__item" href="/archives/">
+              <strong>3</strong>
+              <span>文章</span>
+            </a>
+          
+        
+      </div>
+    
+    <div class="socials">
+      
+        <a href="https://space.bilibili.com/" target="_blank" rel="noopener" aria-label="Bilibili">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-bilibili" aria-hidden="true"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.787 1.894v7.52c.018.748.28 1.38.787 1.887.507.506 1.134.769 1.88.787h13.334c.746-.018 1.373-.28 1.88-.787.506-.507.769-1.13.787-1.887v-7.52c-.018-.747-.28-1.378-.787-1.894-.507-.515-1.134-.773-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.387-.947.258-.257.574-.386.946-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+
+          
+        </a>
+      
+        <a href="https://github.com/VixieTodd" target="_blank" rel="noopener" aria-label="GitHub">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+
+          
+        </a>
+      
+      
+    </div>
+  </section>
+
+  
+
+  
+    <section class="side-card toc-card">
+      <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-table-of-contents" aria-hidden="true"><path d="M16 12H3"/><path d="M16 18H3"/><path d="M16 6H3"/><path d="M21 12h.01"/><path d="M21 18h.01"/><path d="M21 6h.01"/></svg>
+文章目录</h2>
+      <div class="toc-content">
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-OpenClaw"><span class="toc-text">一、什么是 OpenClaw</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">二、准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82"><span class="toc-text">2.1 系统要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-API-Key"><span class="toc-text">2.2 API Key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85-OpenClaw"><span class="toc-text">三、安装 OpenClaw</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Windows%EF%BC%88PowerShell%EF%BC%89"><span class="toc-text">3.1 Windows（PowerShell）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-macOS-Linux-WSL2"><span class="toc-text">3.2 macOS &#x2F; Linux &#x2F; WSL2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Docker%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%EF%BC%89"><span class="toc-text">3.3 Docker（服务器部署）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%EF%BC%88Onboarding%EF%BC%89"><span class="toc-text">四、初始化配置（Onboarding）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85"><span class="toc-text">五、验证安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%BF%9E%E6%8E%A5%E8%81%8A%E5%A4%A9%E6%B8%A0%E9%81%93"><span class="toc-text">六、连接聊天渠道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E5%BE%AE%E4%BF%A1"><span class="toc-text">6.1 微信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-Telegram"><span class="toc-text">6.2 Telegram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-Discord"><span class="toc-text">6.3 Discord</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">七、基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%B7%A5%E4%BD%9C%E5%8C%BA%E8%B7%AF%E5%BE%84"><span class="toc-text">7.1 工作区路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E8%B0%83%E6%95%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">7.2 调整模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-%E5%90%AF%E7%94%A8%E7%BD%91%E7%BB%9C%E6%90%9C%E7%B4%A2"><span class="toc-text">7.3 启用网络搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E8%BF%90%E8%A1%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-text">7.4 运行定时任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">八、常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%AE%89%E8%A3%85-Skills%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">九、安装 Skills（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5"><span class="toc-text">十、故障排查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#openclaw-command-not-found"><span class="toc-text">openclaw: command not found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gateway-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5"><span class="toc-text">Gateway 启动失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%9B%9E%E5%A4%8D"><span class="toc-text">模型不回复</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E5%8F%82%E8%80%83"><span class="toc-text">进阶参考</span></a></li></ol>
+        
+      </div>
+    </section>
+  
+
+  
+
+</aside>
+
+    <section class="paper-main">
+      
+
+<div class="article-tape-wrap">
+<span class="tape tape--top-right" aria-hidden="true"></span>
+<article class="article-paper">
+  <header class="article-header">
+    
+      <a class="label-pill" href="/categories/%E6%8A%80%E6%9C%AF/">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+        技术
+      </a>
+    
+    <h1>OpenClaw 快速开始</h1>
+    <div class="meta-line meta-line--article">
+      <span class="meta-date">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+2026-06-22</span>
+      
+        <span class="meta-tags">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+          <a class="meta-tag-link" href="/tags/%E7%94%B1AI%E7%94%9F%E6%88%90/">#由AI生成</a><a class="meta-tag-link" href="/tags/AI/">#AI</a><a class="meta-tag-link" href="/tags/Agent/">#Agent</a><a class="meta-tag-link" href="/tags/%E8%BD%AF%E4%BB%B6/">#软件</a>
+        </span>
+      
+    </div>
+  </header>
+
+  
+
+
+  <div class="article-content">
+    <blockquote>
+<p>适用平台：Windows &#x2F; macOS &#x2F; Linux | 更新时间：2026-06</p>
+</blockquote>
+<hr>
+<h2 id="一、什么是-OpenClaw"><a href="#一、什么是-OpenClaw" class="headerlink" title="一、什么是 OpenClaw"></a>一、什么是 OpenClaw</h2><p>OpenClaw 是一个本地 AI Agent 运行时。安装后可以通过 CLI（终端命令）、Web 控制台、或各种聊天平台（微信、Telegram、Discord 等）与 AI 对话，支持文件读写、命令执行、联网搜索、定时任务等工具。</p>
+<p>核心组件：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Gateway</strong></td>
+<td>核心服务，管理会话、路由消息、执行工具</td>
+</tr>
+<tr>
+<td><strong>Control UI</strong></td>
+<td>浏览器控制台，<code>http://127.0.0.1:18789</code></td>
+</tr>
+<tr>
+<td><strong>Channels</strong></td>
+<td>消息渠道（微信&#x2F;Telegram&#x2F;Discord&#x2F;Slack 等）</td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>社区能力模块，可安装扩展功能</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h2><h3 id="2-1-系统要求"><a href="#2-1-系统要求" class="headerlink" title="2.1 系统要求"></a>2.1 系统要求</h3><ul>
+<li>推荐<strong>Node.js 24</strong> 最低支持Node.js 22.19+</li>
+<li>操作系统：Windows 10 &#x2F; Windows 11 &#x2F; macOS 12 Monterey 或更新版本 &#x2F; Linux</li>
+<li>一个模型供应商的 API Key（见 2.2）</li>
+</ul>
+<p>查看 Node 版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br></pre></td></tr></table></figure>
+
+<p>如果未安装或版本过低，从 <a target="_blank" rel="noopener" href="https://nodejs.org/">nodejs.org</a> 下载安装。</p>
+<h3 id="2-2-API-Key"><a href="#2-2-API-Key" class="headerlink" title="2.2 API Key"></a>2.2 API Key</h3><p>OpenClaw 本身不提供模型服务，需要接入第三方模型 API。常用选项：</p>
+<table>
+<thead>
+<tr>
+<th>供应商(主流模型)</th>
+<th>获取方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DeepSeek(DeepSeek V4)</strong></td>
+<td><a target="_blank" rel="noopener" href="https://platform.deepseek.com/">platform.deepseek.com</a> → API Keys</td>
+</tr>
+<tr>
+<td><strong>豆包(Doubao-Seed-2.0)</strong></td>
+<td><a target="_blank" rel="noopener" href="https://console.volcengine.com/">console.volcengine.com</a>→ 登录</td>
+</tr>
+<tr>
+<td><strong>Anthropic(Claude Opus 4.6)</strong></td>
+<td><a target="_blank" rel="noopener" href="https://console.anthropic.com/">console.anthropic.com</a> → API Keys</td>
+</tr>
+<tr>
+<td><strong>OpenAI(GPT-5.2)</strong></td>
+<td><a target="_blank" rel="noopener" href="https://platform.openai.com/">platform.openai.com</a> → API Keys</td>
+</tr>
+<tr>
+<td><strong>Google(Gemini)</strong></td>
+<td><a target="_blank" rel="noopener" href="https://ai.google.dev/">ai.google.dev</a> → API Key</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、安装-OpenClaw"><a href="#三、安装-OpenClaw" class="headerlink" title="三、安装 OpenClaw"></a>三、安装 OpenClaw</h2><h3 id="3-1-Windows（PowerShell）"><a href="#3-1-Windows（PowerShell）" class="headerlink" title="3.1 Windows（PowerShell）"></a>3.1 Windows（PowerShell）</h3><p>打开 PowerShell（管理员权限），执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">iwr</span> <span class="literal">-useb</span> https://openclaw.ai/install.ps1 | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
+
+<p>安装脚本会自动检测系统、安装 Node（如未安装）、安装 OpenClaw 并启动初次配置向导。</p>
+<p>或者手动通过 npm 安装：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> openclaw@latest</span><br><span class="line">openclaw onboard <span class="literal">--install-daemon</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-macOS-Linux-WSL2"><a href="#3-2-macOS-Linux-WSL2" class="headerlink" title="3.2 macOS &#x2F; Linux &#x2F; WSL2"></a>3.2 macOS &#x2F; Linux &#x2F; WSL2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://openclaw.ai/install.sh | bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-Docker（服务器部署）"><a href="#3-3-Docker（服务器部署）" class="headerlink" title="3.3 Docker（服务器部署）"></a>3.3 Docker（服务器部署）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name openclaw \</span><br><span class="line">  -v ~/.openclaw:/root/.openclaw \</span><br><span class="line">  -p 18789:18789 \</span><br><span class="line">  ghcr.io/openclaw/openclaw:latest</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、初始化配置（Onboarding）"><a href="#四、初始化配置（Onboarding）" class="headerlink" title="四、初始化配置（Onboarding）"></a>四、初始化配置（Onboarding）</h2><p>安装完成后运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openclaw onboard --install-daemon</span><br></pre></td></tr></table></figure>
+
+<p>向导会依次询问：</p>
+<ol>
+<li><strong>选择模型供应商</strong> — 输入 <code>deepseek</code> &#x2F; <code>anthropic</code> &#x2F; <code>openai</code> 等</li>
+<li><strong>输入 API Key</strong> — 粘贴你的 API Key</li>
+<li><strong>选择默认模型</strong> — 如 <code>deepseek-v4-flash</code></li>
+<li><strong>设置 Gateway 端口</strong> — 默认 <code>18789</code></li>
+<li><strong>配置自动启动</strong> — 推荐设为开机自启</li>
+</ol>
+<p><code>--install-daemon</code> 参数会将 Gateway 注册为系统服务（macOS LaunchAgent &#x2F; Linux systemd &#x2F; Windows Scheduled Task），实现开机自启。</p>
+<hr>
+<h2 id="五、验证安装"><a href="#五、验证安装" class="headerlink" title="五、验证安装"></a>五、验证安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确认 CLI 可用</span></span><br><span class="line">openclaw --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 Gateway 状态</span></span><br><span class="line">openclaw gateway status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开控制台</span></span><br><span class="line">openclaw dashboard</span><br></pre></td></tr></table></figure>
+
+<p>浏览器访问 <code>http://127.0.0.1:18789</code>，看到 Control UI 界面即为安装成功。</p>
+<p>在聊天框发送第一条消息，如果收到 AI 回复，说明模型连接正常。</p>
+<hr>
+<h2 id="六、连接聊天渠道"><a href="#六、连接聊天渠道" class="headerlink" title="六、连接聊天渠道"></a>六、连接聊天渠道</h2><p>Control UI 适合桌面端调试，日常使用建议连接手机上的聊天应用。</p>
+<h3 id="6-1-微信"><a href="#6-1-微信" class="headerlink" title="6.1 微信"></a>6.1 微信</h3><p>需要安装 <a target="_blank" rel="noopener" href="https://github.com/Tencent/openclaw-weixin">OpenClaw 微信插件</a>。</p>
+<p>快速开始：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx -y @tencent-weixin/openclaw-weixin-cli install</span><br></pre></td></tr></table></figure>
+
+<p>扫码登录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openclaw channels login --channel openclaw-weixin</span><br></pre></td></tr></table></figure>
+
+<p>详见<a target="_blank" rel="noopener" href="https://github.com/Tencent/openclaw-weixin/blob/main/README.zh_CN.md">README.CN.md</a></p>
+<h3 id="6-2-Telegram"><a href="#6-2-Telegram" class="headerlink" title="6.2 Telegram"></a>6.2 Telegram</h3><ol>
+<li>在 <a target="_blank" rel="noopener" href="https://t.me/BotFather">@BotFather</a> 创建 Bot，获取 Token</li>
+<li>配置：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  channels: &#123;</span><br><span class="line">    telegram: &#123;</span><br><span class="line">      enabled: true,</span><br><span class="line">      botToken: &quot;123456:ABC-DEF1234ghikl&quot;,</span><br><span class="line">      allowFrom: [&quot;@你的用户名&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-Discord"><a href="#6-3-Discord" class="headerlink" title="6.3 Discord"></a>6.3 Discord</h3><ol>
+<li>在 <a target="_blank" rel="noopener" href="https://discord.com/developers">Discord Developer Portal</a> 创建 Bot</li>
+<li>配置 Token 并邀请 Bot 到服务器</li>
+<li>配置：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  channels: &#123;</span><br><span class="line">    discord: &#123;</span><br><span class="line">      enabled: true,</span><br><span class="line">      token: &quot;你的Bot Token&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="七、基础配置"><a href="#七、基础配置" class="headerlink" title="七、基础配置"></a>七、基础配置</h2><p>配置文件位于 <code>~/.openclaw/openclaw.json</code>（JSON5 格式，支持注释和尾逗号）。</p>
+<h3 id="7-1-工作区路径"><a href="#7-1-工作区路径" class="headerlink" title="7.1 工作区路径"></a>7.1 工作区路径</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  agents: &#123;</span><br><span class="line">    defaults: &#123;</span><br><span class="line">      workspace: &quot;~/.openclaw/workspace&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-调整模型"><a href="#7-2-调整模型" class="headerlink" title="7.2 调整模型"></a>7.2 调整模型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  agents: &#123;</span><br><span class="line">    defaults: &#123;</span><br><span class="line">      model: &quot;deepseek/deepseek-v4-flash&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-启用网络搜索"><a href="#7-3-启用网络搜索" class="headerlink" title="7.3 启用网络搜索"></a>7.3 启用网络搜索</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  plugins: &#123;</span><br><span class="line">    entries: &#123;</span><br><span class="line">      brave: &#123;</span><br><span class="line">        config: &#123;</span><br><span class="line">          webSearch: &#123;</span><br><span class="line">            apiKey: &quot;你的API Key&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-运行定时任务"><a href="#7-4-运行定时任务" class="headerlink" title="7.4 运行定时任务"></a>7.4 运行定时任务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置每天 8:00 的提醒</span></span><br><span class="line">openclaw cron add \</span><br><span class="line">  --schedule <span class="string">&quot;0 8 * * *&quot;</span> \</span><br><span class="line">  --tz <span class="string">&quot;Asia/Shanghai&quot;</span> \</span><br><span class="line">  --message <span class="string">&quot;提醒晨：现在该吃药了&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、常用命令"><a href="#八、常用命令" class="headerlink" title="八、常用命令"></a>八、常用命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>openclaw gateway status</code></td>
+<td>查看 Gateway 状态</td>
+</tr>
+<tr>
+<td><code>openclaw gateway restart</code></td>
+<td>重启 Gateway</td>
+</tr>
+<tr>
+<td><code>openclaw gateway stop</code></td>
+<td>停止 Gateway</td>
+</tr>
+<tr>
+<td><code>openclaw dashboard</code></td>
+<td>打开控制台</td>
+</tr>
+<tr>
+<td><code>openclaw config get &lt;字段&gt;</code></td>
+<td>读取配置</td>
+</tr>
+<tr>
+<td><code>openclaw config set &lt;字段&gt; &lt;值&gt;</code></td>
+<td>写入配置</td>
+</tr>
+<tr>
+<td><code>openclaw doctor</code></td>
+<td>诊断检查</td>
+</tr>
+<tr>
+<td><code>openclaw onboard</code></td>
+<td>重新运行配置向导</td>
+</tr>
+<tr>
+<td><code>openclaw update</code></td>
+<td>更新 OpenClaw</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="九、安装-Skills（可选）"><a href="#九、安装-Skills（可选）" class="headerlink" title="九、安装 Skills（可选）"></a>九、安装 Skills（可选）</h2><p>Skills 是社区能力模块。在 Control UI 的 Skills 页面浏览安装，或通过 CLI：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出可用 Skills</span></span><br><span class="line">openclaw skills list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定 Skill</span></span><br><span class="line">openclaw skills install &lt;skill名称&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十、故障排查"><a href="#十、故障排查" class="headerlink" title="十、故障排查"></a>十、故障排查</h2><h3 id="openclaw-command-not-found"><a href="#openclaw-command-not-found" class="headerlink" title="openclaw: command not found"></a><code>openclaw: command not found</code></h3><p>npm 全局 bin 目录未在 PATH 中。解决：</p>
+<p><strong>Windows：</strong> 将 <code>%APPDATA%\npm</code> 添加到系统环境变量 PATH 中。</p>
+<p><strong>macOS &#x2F; Linux：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;$(npm prefix -g)/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="Gateway-启动失败"><a href="#Gateway-启动失败" class="headerlink" title="Gateway 启动失败"></a>Gateway 启动失败</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openclaw doctor          <span class="comment"># 诊断问题</span></span><br><span class="line">openclaw gateway logs    <span class="comment"># 查看日志</span></span><br></pre></td></tr></table></figure>
+
+<p>常见原因：</p>
+<ul>
+<li>端口 18789 被占用：修改 <code>gateway.port</code> 配置</li>
+<li>API Key 无效：检查 <code>openclaw onboard</code> 中的配置</li>
+<li>Node 版本过低：升级到 Node 22.19+</li>
+</ul>
+<h3 id="模型不回复"><a href="#模型不回复" class="headerlink" title="模型不回复"></a>模型不回复</h3><ol>
+<li>确认 API Key 正确且未过期</li>
+<li>确认账户余额充足</li>
+<li>检查 <code>~/.openclaw/openclaw.json</code> 中 <code>agents.defaults.model</code> 配置是否正确</li>
+<li>查看日志：<code>openclaw gateway logs</code></li>
+</ol>
+<hr>
+<h2 id="进阶参考"><a href="#进阶参考" class="headerlink" title="进阶参考"></a>进阶参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/">官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">GitHub 仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/gateway/configuration-reference">配置参考</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/channels">所有支持的渠道</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/security">安全指南</a></li>
+</ul>
+
+  </div>
+
+  <footer class="article-reactions">
+    <div class="reaction-group">
+      <button type="button" class="reaction reaction--comment" aria-label="跳转到评论区" data-action="scroll-to-comments">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+
+      </button>
+      <span class="reaction-label">评论</span>
+      
+    </div>
+    <div class="reaction-group reaction-group--right">
+      
+      <button type="button" class="reaction reaction--share" aria-label="分享" data-action="share">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share-2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+
+      </button>
+      <span class="reaction-label">分享</span>
+    </div>
+  </footer>
+
+  
+
+
+  <nav class="article-actions">
+    
+      <span class="article-action article-action--prev is-disabled" aria-disabled="true">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+
+        <span class="action-label">上一篇</span>
+        <span class="action-title">没有更早的文章了</span>
+      </span>
+    
+    
+      <a class="article-action article-action--next" href="/2026/06/17/who-forgives-whom/">
+        <span class="action-label">下一篇</span>
+        <span class="action-title">Who Forgives Whom? ——《2025哔哩哔哩老友华语辩论老友赛 争铜赛》观后感</span>
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+      </a>
+    
+  </nav>
+</article>
+</div>
+
+
+  <section class="related-paper">
+    <header class="related-paper__head">
+      <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+相关文章</h2>
+      <a class="related-paper__more" href="/archives/">
+        <span>查看更多</span>
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+      </a>
+    </header>
+    <div class="related-paper__grid">
+      
+        <a class="related-card" href="/2026/06/13/hello-world/">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-0">
+  
+    <div class="sun"></div>
+    <div class="cloud cloud-a"></div>
+    <div class="cloud cloud-b"></div>
+    <div class="mountain mountain-a"></div>
+    <div class="mountain mountain-b"></div>
+    <div class="mountain mountain-c"></div>
+    
+    
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">你好，世界</strong>
+            <em class="related-card__date">2026-06-13</em>
+          </span>
+        </a>
+      
+    </div>
+  </section>
+
+
+      
+
+
+    </section>
+    
+  </main>
+
+  <div class="sidebar-backdrop js-sidebar-close" aria-hidden="true"></div>
+
+  
+<footer class="site-footer">
+  <span class="site-footer__left">© 2026 By VixieTodd</span>
+  <span class="site-footer__right">Powered by Theme <a href="https://github.com/Homulilly/hexo-theme-flatpaper" target="_blank" rel="noopener">FlatPaper</a> &nbsp;|&nbsp; <a rel='license' href='https://creativecommons.org/licenses/by/4.0/' target='_blank'>CC BY 4.0</a></span>
+</footer>
+
+  
+<div class="search-panel" aria-hidden="true" data-index-url="/flatpaper-search.json">
+  <div class="search-backdrop js-search-close"></div>
+  <section class="search-dialog" role="dialog" aria-modal="true" aria-label="搜索文章">
+    <span class="tape tape--top-left" aria-hidden="true"></span>
+    <header class="search-head">
+      <h2><span class="green-dot"></span>搜索文章</h2>
+      <button class="icon-button js-search-close" type="button" aria-label="关闭搜索">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+      </button>
+    </header>
+    <label class="search-field">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+      <input id="flatpaper-search" class="search-input" type="search" placeholder="输入关键词，按 Esc 关闭" autocomplete="off">
+    </label>
+    <div class="search-results" data-empty="输入关键词后显示匹配的文章">
+      <p class="search-empty">输入关键词后显示匹配的文章</p>
+    </div>
+  </section>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+</body>
+</html>
