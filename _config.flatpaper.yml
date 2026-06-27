@@ -22,8 +22,8 @@ menu:
 # 个人信息
 # ============
 profile:
-  role: 写点东西
-  bio: "不及物哀，不达悲观。VOCALOID / 音游 / 视频创作 / 日常记录"
+  role: HUMANGET
+  bio: "Can't grasp simple things...What am I?"
   avatar:
   avatar_shape: circle
   site_info:
@@ -50,13 +50,14 @@ welcome:
 # 首页文章卡片摘要字符数
 excerpt_length: 96
 # 侧边栏随机文章数量
-random_posts: 5
+random_posts: 1
 # 相关文章数量
-related_posts: 4
+related_posts: 2
 
 # 首页轮播置顶（最多 4 项）
 featured:
-  # - 文章slug
+  - start-openclaw
+featured_autoplay: 5000
 
 # ============
 # 外观

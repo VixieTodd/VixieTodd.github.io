@@ -43,15 +43,13 @@ hexo.extend.helper.register('flatpaper_menu_helpers', function () {
    * 修复：只有当前页面路径精确匹配时才高亮，避免 /blog/ 页面触发 / 的高亮。
    */
   function active(hrefValue) {
-    var hrefPath = String(hrefValue || '').replace(/\/$/, '');
-    if (!hrefPath) return false;
-    var currentPath = ctx.page.path || '';
-    // 移除末尾的 index.html
-    currentPath = currentPath.replace(/\/index\.html$/, '').replace(/\/$/, '');
-    // 根路径
+    var hrefPath = String(hrefValue || '').replace(/\/$/, '').replace(/^\//, '');
+    var currentPath = (ctx.page.path || '').replace(/\/?index\.html$/, '').replace(/\/$/, '');
+    // 根路径（首页）
     if (hrefPath === '') {
       return currentPath === '';
     }
+    if (!hrefPath) return false;
     return currentPath.indexOf(hrefPath) === 0;
   }
 

@@ -51,9 +51,14 @@ hexo.extend.helper.register('flatpaper_menu_helpers', function () {
   }
 
   function active(hrefValue) {
-    var hrefPath = String(hrefValue || '');
+    var hrefPath = String(hrefValue || '').replace(/\/$/, '').replace(/^\//, '');
+    var currentPath = (ctx.page.path || '').replace(/\/?index\.html$/, '').replace(/\/$/, '');
+    // 根路径（首页）
+    if (hrefPath === '') {
+      return currentPath === '';
+    }
     if (!hrefPath) return false;
-    return (hrefPath === '/' && ctx.is_home()) || (hrefPath !== '/' && ctx.page.path && ctx.page.path.indexOf(hrefPath.replace(/^\//, '')) === 0);
+    return currentPath.indexOf(hrefPath) === 0;
   }
 
   return { children: children, href: href, icon: icon, text: text, active: active };
