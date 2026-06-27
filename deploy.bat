@@ -52,5 +52,5 @@ if %errorlevel% neq 0 (
 
 echo %C_CYAN%========== All Done! ==========%C_RESET%
 echo.
-echo Press any key to exit...
+
 pause

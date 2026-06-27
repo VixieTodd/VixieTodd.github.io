@@ -2,21 +2,30 @@
 # 导航菜单
 # ============
 menu:
-  首页:
+  主页:
     link: /
     icon: home
   博客:
-    link: /blog/
-    icon: folder
-  归档:
-    link: /archives/
-    icon: archive
-  标签:
-    link: /tags/
-    icon: tag
-  分类:
-    link: /categories/
-    icon: folder
+    icon: message-circle
+    item:
+      博客首页:
+        link: /blog/
+        icon: panel-left
+      分类:
+        link: /categories/
+        icon: folder
+      标签:
+        link: /tags/
+        icon: tag
+      归档:
+        link: /archives/
+        icon: archive
+  作品:
+    link: /works/
+    icon: eye
+  关于:
+    link: /about/
+    icon: user
 
 # ============
 # 个人信息
@@ -33,6 +42,26 @@ profile:
     GitHub: https://github.com/VixieTodd
   rss:
     enable: false
+
+# ============
+# 链接网格（左上角九宫格按钮）
+# ============
+nav:
+  enable: true
+  menu:
+    - title: 社交
+      item:
+        - name: Bilibili
+          link: https://space.bilibili.com/
+          icon: bilibili
+        - name: GitHub
+          link: https://github.com/VixieTodd
+          icon: github
+    - title: 项目
+      item:
+        - name: Hippocampus
+          link: https://github.com/VixieTodd/Hippocampus
+          icon: github
 
 # ============
 # 欢迎区
