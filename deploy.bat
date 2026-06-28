@@ -34,7 +34,7 @@ if %errorlevel% neq 0 (
 )
 
 echo %C_YELLOW%[3/3]%C_RESET% Commit and push source code
-for /f %%i in ('date /t') do set commit_date=%%i
+for /f "delims=" %%i in ('powershell -command "Get-Date -Format 'yyyy-MM-dd'"') do set "commit_date=%%i"
 git commit -m "Blog update - %commit_date%"
 if %errorlevel% neq 0 (
     echo %C_YELLOW%^>^> No changes to commit or commit failed.%C_RESET%
