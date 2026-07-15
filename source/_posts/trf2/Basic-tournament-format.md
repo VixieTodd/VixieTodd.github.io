@@ -1,7 +1,7 @@
 ---
 title: 第二届铜频共振音游嘉年华 2026·秋 赛制规划
 date: 2026-07-15 23:55:00
-hidden: true
+hidden: false
 tags:
   - TRF
   - 音游
@@ -92,7 +92,7 @@ categories:
 
 ### BPR 流程
 
-![图1 - LCQ-BPR示意图](source\images\trf2_images\image1.png)
+![图1 - LCQ-BPR示意图](/images/trf2_images/image1.png)
 
 1. 按预选排名从高到低依次选 2 个谱面（不可重复）
 2. 按预选排名从低到高依次禁 1 个谱面
@@ -118,7 +118,7 @@ categories:
 
 ### 单回合 BPR 流程
 
-![图2 - 决赛-BPR示意图](source\images\trf2_images\image2.png)
+![图2 - 决赛-BPR示意图](/images/trf2_images/image2.png)
 
 1. 签位统治方（单回合处于赛制内的优势方）先选择 2 个谱面，另一方后选择 2 个谱面
 2. 每人从对方选的 2 个谱面中禁 1 个谱面
@@ -129,8 +129,12 @@ categories:
 
 #### 8 人决赛对阵示意图
 
-![图3 - 8人决赛-对阵示意图](source\images\trf2_images\image3.png)
+![图3 - 8人决赛-对阵示意图](/images/trf2_images/image3.png)
 
 #### 16 人决赛对阵示意图
 
-![图4 - 16人决赛-对阵示意图](source\images\trf2_images\image4.png)
+![图4 - 16人决赛-对阵示意图](/images/trf2_images/image4.png)
+
+---
+
+📄 [下载PDF源文件](/images/trf2_images/TRF2nd2026-Basic-tournament-format-V1.pdf)
