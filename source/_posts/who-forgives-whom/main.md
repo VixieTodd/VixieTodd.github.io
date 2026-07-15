@@ -20,7 +20,7 @@ categories:
 
 最近，在抖音上有一场辩论被讨论的沸沸扬扬——“原谅原生家庭的伤害，是对背叛/放过童年的自己？”，当我看到这个辩题毫不犹豫选择“背叛”，看到评论区有人说最后正方赢了，我是很震惊的。我也曾是一位业余辩手，自从那次辩论赛后，也一直对辩论赛有着一些兴趣。所以，在今天这个晚上，在我无数次刷到相关讨论了以后，我打算看一下了。
 
-[点击跳转至文字辩论页面](/who-forgives-whom/appx)
+[点击跳转至文字辩论页面](appx.md)
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114471733366977&bvid=BV1Nh5TzjEFz&cid=29853224087&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 

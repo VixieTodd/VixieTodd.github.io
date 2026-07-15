@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "狐狐藏书阁"
+title: "狐涂小狐的博客"
 subtitle: "Can't grasp simple things...What am I?"
 description: 'VOCALOID/术力口 | 音游 | 视频创作 | 日常记录'
 keywords: VOCALOID,术力口,音游,博客,日常
@@ -29,7 +29,6 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-  - "join-group/**"
 
 # Writing
 new_post_name: :title.md # File name of new posts
